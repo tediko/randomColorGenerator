@@ -82,3 +82,10 @@ body {
     margin: 0 5px 0 20px;
 }
 
+.generator__preview {
+    width: 50px;
+    height: 27px;
+    background: var(--clr-random);
+    border-radius: 4px;
+}
+
