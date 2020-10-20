@@ -1,4 +1,3 @@
-const container = document.querySelector('.generator__container');
 const list = document.querySelector('.generator__list');
 let colorList = [];
 let hexList = [];
@@ -49,10 +48,11 @@ function listLength(list, length) { // remove first item when list is X length
     }
 }
 
-function addColor() { // add new color to colorList and display it
-        colorList.push(randomColor());
-        hexList.push(hexConverter(r, g, b));
-        displayColors();
+function addColor(e) { // add new color to colorList and display it
+    if (e.keyCode != 32) return;
+    colorList.push(randomColor());
+    hexList.push(hexConverter(r, g, b));
+    displayColors();
 }
 
 function displayColors() { // function to display new items
@@ -85,4 +85,4 @@ function displayColors() { // function to display new items
     list.appendChild(documentFragment);
 }
 
-container.addEventListener('click', addColor);
+document.addEventListener('keydown', addColor);
