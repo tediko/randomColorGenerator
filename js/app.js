@@ -1,16 +1,40 @@
 const container = document.querySelector('.generator__container');
 const list = document.querySelector('.generator__list');
 let colorList = [];
+let hexList = [];
+let r, g, b;
 
 function randomNumber(min, max) { // return random number between min and max
     return Math.round(Math.random() * (max - min) + min);
 }
 
 function randomColor() { // return object with random r, g, b color values
-    let r = randomNumber(0, 255);
-    let g = randomNumber(0, 255);
-    let b = randomNumber(0, 255);
+    r = randomNumber(0, 255);
+    g = randomNumber(0, 255);
+    b = randomNumber(0, 255);
     return `${r}, ${g}, ${b}`;
+}
+
+function hexConverter(r, g, b) { //convert rgb color code to hex value.
+    const rgb = [r, g, b];
+    const hexadecimal = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+    const hexColor = ['#'];
+
+    rgb.forEach(color => {
+        // Each r g b value return two digits of the 6-digit hex code.
+        // Take color value and divide it by 16, 
+        // which means that is the first digit of the 6-digit hex color.
+        // Then take remainder of the first digit and multiply it by 16,
+        // which means that is second digit of the hex color.
+        // Looping it for each color returns 6-digit hex code. 
+        let firstDigit = Math.floor(color / 16);
+        let reminder = (color / 16) - firstDigit;
+        let secondDigit = reminder * 16;
+        
+        hexColor.push(hexadecimal[firstDigit], hexadecimal[secondDigit]);
+    })
+
+    return hexColor.join('');
 }
 
 function removeItems(parent) { //remove all items
@@ -27,6 +51,7 @@ function listLength(length) { // remove first item when list is X length
 
 function addColor() { // add new color to colorList and display it
         colorList.push(randomColor());
+        hexList.push(hexConverter(r, g, b));
         displayColors();
 }
 
