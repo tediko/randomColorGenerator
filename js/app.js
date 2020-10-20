@@ -38,13 +38,17 @@ function displayColors() { // function to display new items
 
     colorList.forEach(color => {
         const item = document.createElement('li');
+        const colorPreview = document.createElement('span');
         const colorRgb = document.createElement('span');
         item.classList.add('generator__item');
+        colorPreview.classList.add('generator__preview');
         colorRgb.classList.add('generator__type');
         
         document.documentElement.style.setProperty(`--clr-random`, `rgb(${color})`);
+        colorPreview.style.background = `rgb(${color})`;
         colorRgb.textContent = `RGB ${color}`
         
+        item.appendChild(colorPreview);
         item.appendChild(colorRgb);
         documentFragment.appendChild(item);
     })
