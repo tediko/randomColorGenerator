@@ -112,3 +112,10 @@ body {
     border-radius: 4px;
 }
 
+.generator__message {
+    font-size: 1rem;
+    letter-spacing: 10px;
+    font-weight: 300;
+    color: #fff;
+}
+
