@@ -13,6 +13,12 @@ function randomColor() { // return object with random r, g, b color values
     return `${r}, ${g}, ${b}`;
 }
 
+function removeItems(parent) { //remove all items
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
 function addColor() { // add new color to colorList and display it
         colorList.push(randomColor());
         displayColors();
@@ -20,6 +26,7 @@ function addColor() { // add new color to colorList and display it
 
 function displayColors() { // function to display new items
     const documentFragment = new DocumentFragment();
+    removeItems(list);
 
     colorList.forEach(color => {
         const item = document.createElement('li');
