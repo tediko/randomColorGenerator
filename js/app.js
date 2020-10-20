@@ -61,20 +61,24 @@ function displayColors() { // function to display new items
     removeItems(list);
     listLength(length);
 
-    colorList.forEach(color => {
+    colorList.forEach((color, idx) => {
         const item = document.createElement('li');
         const colorPreview = document.createElement('span');
         const colorRgb = document.createElement('span');
+        const colorHex = document.createElement('span');
         item.classList.add('generator__item');
         colorPreview.classList.add('generator__preview');
         colorRgb.classList.add('generator__type');
+        colorHex.classList.add('generator__type');
         
         document.documentElement.style.setProperty(`--clr-random`, `rgb(${color})`);
         colorPreview.style.background = `rgb(${color})`;
-        colorRgb.textContent = `RGB ${color}`
+        colorRgb.textContent = `RGB ${color}`;
+        colorHex.textContent = `HEX ${hexList[idx]}`;
         
         item.appendChild(colorPreview);
         item.appendChild(colorRgb);
+        item.appendChild(colorHex);
         documentFragment.appendChild(item);
     })
     list.appendChild(documentFragment);
