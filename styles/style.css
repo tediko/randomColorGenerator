@@ -33,10 +33,33 @@ body {
 .generator__heading {
     position: relative;
     background: #DCDCDC;
-    padding: 10px 25px;
-    font-size: 2rem;
+    padding: 15px 35px;
+    font-size: 3rem;
     font-weight: 400;
     text-transform: uppercase;
+}
+
+.generator__heading::before, /* heading corner frame */
+.generator__heading::after {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    margin: -20px -20px;
+    border-style: solid;
+    border-color: #DCDCDC;
+}
+
+.generator__heading::before { /* top left frame */
+    top: 0;
+    left: 0;
+    border-width:3px 0px 0px 3px;
+}
+
+.generator__heading::after { /* bottom right frame */
+    bottom: 0;
+    right: 0;
+    border-width:0 3px 3px 0;
 }
 
 .generator__list {
