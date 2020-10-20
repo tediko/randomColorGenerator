@@ -8,10 +8,9 @@ function randomNumber(min, max) { // return random number between min and max
 }
 
 function randomColor() { // return object with random r, g, b color values
-    r = randomNumber(0, 255);
-    g = randomNumber(0, 255);
-    b = randomNumber(0, 255);
-    return `${r}, ${g}, ${b}`;
+    [r, g, b] = [randomNumber(0, 255), randomNumber(0, 255), randomNumber(0, 255)];
+    const color = `${r}, ${g}, ${b}`;
+    return color;
 }
 
 function hexConverter(r, g, b) { //convert rgb color code to hex value.
