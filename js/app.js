@@ -82,6 +82,15 @@ function displayColors() { // function to display new items
         documentFragment.appendChild(item);
     })
     list.appendChild(documentFragment);
+    
+    list.lastChild.animate([ //animate last added item
+        // keyframes
+        { opacity: 0.5 }, 
+        { opacity: 1 }
+      ], { 
+        // timing options
+        duration: 500,
+      });
 }
 
 document.addEventListener('keydown', addColor);
