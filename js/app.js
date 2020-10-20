@@ -2,23 +2,23 @@ const container = document.querySelector('.generator__container');
 const list = document.querySelector('.generator__list');
 let colorList = [];
 
-function randomNumber(min, max) {
+function randomNumber(min, max) { // return random number between min and max
     return Math.round(Math.random() * (max - min) + min);
 }
 
-function randomColor() {
+function randomColor() { // return object with random r, g, b color values
     let r = randomNumber(0, 255);
     let g = randomNumber(0, 255);
     let b = randomNumber(0, 255);
     return `${r}, ${g}, ${b}`;
 }
 
-function addColor() { 
+function addColor() { // add new color to colorList and display it
         colorList.push(randomColor());
         displayColors();
 }
 
-function displayColors() {
+function displayColors() { // function to display new items
     const documentFragment = new DocumentFragment();
 
     colorList.forEach(color => {
@@ -35,3 +35,5 @@ function displayColors() {
     })
     list.appendChild(documentFragment);
 }
+
+container.addEventListener('click', addColor);
