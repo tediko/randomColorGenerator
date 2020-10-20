@@ -38,11 +38,31 @@ body {
     text-transform: uppercase;
 }
 
+.generator__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Varela Round', sans-serif;
+    background: #DCDCDC;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: none;
+    color: #3f3844;
+    padding: 5px 0;
+    margin-top: 3px;    
+}
+
 /* span classes */
 .generator__span {
     color: var(--clr-random);
     padding: 5px;
     border-radius: 4px;
     font-weight: 700;
+}
+
+.generator__type {
+    font-size: 0.9rem;
+    font-weight: 300;
+    margin: 0 5px 0 20px;
 }
 
