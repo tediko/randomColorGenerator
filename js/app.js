@@ -19,6 +19,12 @@ function removeItems(parent) { //remove all items
     }
 }
 
+function listLength(length) { // remove first item when list is X length
+    if (colorList.length >= length) {
+        colorList.shift();
+    }
+}
+
 function addColor() { // add new color to colorList and display it
         colorList.push(randomColor());
         displayColors();
@@ -26,7 +32,9 @@ function addColor() { // add new color to colorList and display it
 
 function displayColors() { // function to display new items
     const documentFragment = new DocumentFragment();
+    const length = 6; //amount of items you want to display
     removeItems(list);
+    listLength(length);
 
     colorList.forEach(color => {
         const item = document.createElement('li');
